@@ -1,4 +1,26 @@
 fun main() {
+
+    val audio1 = Audio(
+        3,
+        5,
+        "B2",
+        "Альбом",
+        75,
+        "",
+        1,
+        2,
+        3,
+        1999
+    )
+    val video1 = Video(
+        4,
+        6,
+        "Matrix",
+        " ",
+        1998,
+        2000
+    )
+
     val post1 = Post(
         0,
         1,
@@ -15,6 +37,7 @@ fun main() {
         null,
         1,
         "post",
+        arrayOf(AudioAttachment(audio = audio1), VideoAttachment(video = video1)),
         null,
         123,
         null,
@@ -38,6 +61,7 @@ fun main() {
         1,
         "copy",
         null,
+        null,
         123,
         null,
         donut = null,
@@ -60,6 +84,7 @@ fun main() {
         1,
         "copy",
         null,
+        null,
         123,
         null,
         donut = null,
@@ -81,6 +106,7 @@ fun main() {
         null,
         1,
         "copy",
+        null,
         null,
         123,
         null,

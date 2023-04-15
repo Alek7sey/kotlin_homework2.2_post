@@ -8,6 +8,27 @@ class WallServiceTest {
 
     @Test
     fun add() {
+        val audio1 = Audio(
+            3,
+            5,
+            "B2",
+            "Альбом",
+            75,
+            "",
+            1,
+            2,
+            3,
+            1999
+        )
+        val video1 = Video(
+            4,
+            6,
+            "Matrix",
+            " ",
+            1998,
+            2000
+        )
+
         val service = WallService
         service.add(
             Post(
@@ -26,6 +47,7 @@ class WallServiceTest {
                 null,
                 1,
                 "post",
+                arrayOf(AudioAttachment(audio = audio1), VideoAttachment(video = video1)),
                 null,
                 123,
                 null,
@@ -44,6 +66,26 @@ class WallServiceTest {
 
     @Test
     fun updateExisting() {
+        val audio1 = Audio(
+            3,
+            5,
+            "B2",
+            "Альбом",
+            75,
+            "",
+            1,
+            2,
+            3,
+            1999
+        )
+        val video1 = Video(
+            4,
+            6,
+            "Matrix",
+            " ",
+            1998,
+            2000
+        )
         val service = WallService
         service.add(
             Post(
@@ -62,6 +104,32 @@ class WallServiceTest {
                 null,
                 1,
                 "post",
+                arrayOf(AudioAttachment(audio = audio1), VideoAttachment(video = video1)),
+                null,
+                123,
+                null,
+                donut = null,
+                postponedId = 456
+            )
+        )
+        service.add(
+            Post(
+                0,
+                1,
+                1,
+                34,
+                20130409,
+                "",
+                111,
+                354,
+                1,
+                comments = Comments(count = 1),
+                null,
+                null,
+                null,
+                1,
+                "post",
+                arrayOf(AudioAttachment(audio = audio1), VideoAttachment(video = video1)),
                 null,
                 123,
                 null,
@@ -87,29 +155,6 @@ class WallServiceTest {
                 1,
                 "copy",
                 null,
-                123,
-                null,
-                donut = null,
-                postponedId = 456
-            )
-        )
-        service.add(
-            Post(
-                0,
-                3,
-                5,
-                34,
-                20130425,
-                "",
-                333,
-                354,
-                1,
-                comments = Comments(count = 145),
-                null,
-                null,
-                null,
-                1,
-                "copy",
                 null,
                 123,
                 null,
@@ -133,6 +178,7 @@ class WallServiceTest {
             null,
             1,
             "copy",
+            null,
             null,
             123,
             null,
@@ -145,6 +191,26 @@ class WallServiceTest {
 
     @Test
     fun updateNonExistent() {
+        val audio1 = Audio(
+            3,
+            5,
+            "B2",
+            "Альбом",
+            75,
+            "",
+            1,
+            2,
+            3,
+            1999
+        )
+        val video1 = Video(
+            4,
+            6,
+            "Matrix",
+            " ",
+            1998,
+            2000
+        )
         val service = WallService
         service.add(
             Post(
@@ -163,6 +229,32 @@ class WallServiceTest {
                 null,
                 1,
                 "post",
+                arrayOf(AudioAttachment(audio = audio1), VideoAttachment(video = video1)),
+                null,
+                123,
+                null,
+                donut = null,
+                postponedId = 456
+            )
+        )
+        service.add(
+            Post(
+                0,
+                1,
+                1,
+                34,
+                20130409,
+                "",
+                111,
+                354,
+                1,
+                comments = Comments(count = 1),
+                null,
+                null,
+                null,
+                1,
+                "post",
+                arrayOf(AudioAttachment(audio = audio1), VideoAttachment(video = video1)),
                 null,
                 123,
                 null,
@@ -188,29 +280,6 @@ class WallServiceTest {
                 1,
                 "copy",
                 null,
-                123,
-                null,
-                donut = null,
-                postponedId = 456
-            )
-        )
-        service.add(
-            Post(
-                0,
-                3,
-                5,
-                34,
-                20130425,
-                "",
-                333,
-                354,
-                1,
-                comments = Comments(count = 145),
-                null,
-                null,
-                null,
-                1,
-                "copy",
                 null,
                 123,
                 null,
@@ -234,6 +303,7 @@ class WallServiceTest {
             null,
             1,
             "copy",
+            null,
             null,
             123,
             null,

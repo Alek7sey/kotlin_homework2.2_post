@@ -14,6 +14,7 @@ data class Post(
     val reposts: Reposts?,
     val viewsCount: Int,
     val postType: String,
+    val attachments: Array<Attachment>?,
     val geo: Geo?,
     val signerId: Int,
     val copyHistory: Array<Post>?,
