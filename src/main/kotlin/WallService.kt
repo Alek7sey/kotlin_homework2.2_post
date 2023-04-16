@@ -1,19 +1,21 @@
 object WallService {
     private var posts = emptyArray<Post>()
-    private var id = 1
+    private var comments = emptyArray<Comment>()
+    private var idPost = 1
+
 
     fun getId(): Int {
         return posts.last().id
     }
 
-    fun add(post: Post): Post {
+    fun addPost(post: Post): Post {
         if (posts.isEmpty()) {
-            post.id = id
-            id++
+            post.id = idPost
+            idPost++
             posts += post
         } else {
-            id = posts.last().id + 1
-            post.id = id
+            idPost = posts.last().id + 1
+            post.id = idPost
             posts += post
         }
         return posts.last()
@@ -33,8 +35,24 @@ object WallService {
         posts.forEach { println(it) }
     }
 
+    fun printComments() {
+        comments.forEach { println(it) }
+    }
+
+
     fun clear() {
         posts = emptyArray()
-        id = 1
+        idPost = 1
+        comments = emptyArray()
+    }
+
+    fun createComment(postId: Int, comment: Comment): Comment {
+        for ((index, postes) in posts.withIndex())
+            if (postes.id == postId) {
+                comments += comment
+                return comment
+            }
+        throw PostNotFoundException("No post with id = $postId")
+
     }
 }

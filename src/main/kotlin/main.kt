@@ -1,25 +1,18 @@
+import java.lang.RuntimeException
+
+class PostNotFoundException(message: String) : RuntimeException(message) {
+
+}
+
 fun main() {
 
     val audio1 = Audio(
-        3,
-        5,
-        "B2",
-        "Альбом",
-        75,
-        "",
-        1,
-        2,
-        3,
-        1999
+        3, 5, "B2", "Альбом", 75, "", 1, 2, 3, 1999
     )
     val video1 = Video(
-        4,
-        6,
-        "Matrix",
-        " ",
-        1998,
-        2000
+        4, 6, "Matrix", " ", 1998, 2000
     )
+    val comment1 = Comment(45, 6, 20130416, "comment test", null, 23, 32, null, null, null)
 
     val post1 = Post(
         0,
@@ -31,7 +24,7 @@ fun main() {
         111,
         354,
         1,
-        comments = Comments(count = 1),
+        comments = null,
         null,
         null,
         null,
@@ -54,7 +47,7 @@ fun main() {
         222,
         354,
         1,
-        comments = Comments(count = 145),
+        comments = null,
         null,
         null,
         null,
@@ -77,7 +70,7 @@ fun main() {
         333,
         354,
         1,
-        comments = Comments(count = 145),
+        comments = null,
         null,
         null,
         null,
@@ -100,7 +93,7 @@ fun main() {
         999,
         354,
         1,
-        comments = Comments(count = 145),
+        comments = null,
         null,
         null,
         null,
@@ -114,14 +107,19 @@ fun main() {
         postponedId = 999
     )
 
-    val posts = WallService.add(post1)
+    val posts = WallService.addPost(post1)
     println(posts)
     println()
-    WallService.add(post2)
-    WallService.add(post3)
+    WallService.addPost(post2)
+    WallService.addPost(post3)
     WallService.printPosts()
     println()
     println(WallService.update(update))
     WallService.printPosts()
+    println()
+    WallService.createComment(2, comment1)
+    WallService.printComments()
+
+
 
 }
